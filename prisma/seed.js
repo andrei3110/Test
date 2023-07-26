@@ -1,12 +1,12 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-async function Location() {
-    const Location = await prisma.Locations.createMany({
+async function Sellers() {
+    const Sellers = await prisma.Sellers.createMany({
         data: [
-            { title: "Location1" },
-            { title: "Location2" },
-            { title: "Location3" },
+            { title: "Sellers1" },
+            { title: "Sellers2" },
+            { title: "Sellers3" },
         ],
         skipDuplicates: true
         }
@@ -31,24 +31,24 @@ async function Storage() {
     const Storage = await prisma.Storages.createMany({
         data: [
             { title: "storage1",
-            location_id:3 },
+            seller_id:3 },
             { title: "storage2",
-            location_id:3 },
+            seller_id:3 },
             { title: "storage3",
-            location_id:1 },
+            seller_id:1 },
             { title: "storage4",
-            location_id:1 },
+            seller_id:1 },
             { title: "storage5",
-            location_id:2},
+            seller_id:2},
         ],
         skipDuplicates: true
         }
     );
 }
-Storage()
-Location()
-Product()
 
+Sellers()
+Product()
+Storage()
 
     .then(async () => {
         await prisma.$disconnect()

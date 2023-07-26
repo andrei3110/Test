@@ -14,13 +14,13 @@ datasource db {
         id          Int       @id @default(autoincrement())
         title       String    @db.VarChar(255)
 
-        locations    Locations  @relation(fields: [location_id], references: [id])
-        location_id Int
+        sellers    Sellers  @relation(fields: [seller_id], references: [id])
+        seller_id Int
         products  StorageOnProduct[]
 
     }
 
-    model Locations {
+    model Sellers {
         id          Int      @id @default(autoincrement())
         title       String   @db.VarChar(255)
 
